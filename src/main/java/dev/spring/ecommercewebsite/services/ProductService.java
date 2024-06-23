@@ -4,4 +4,6 @@ import dev.spring.ecommercewebsite.models.Product;
 
 public interface ProductService {
     public Product getSingleProduct(Long productId);
+
+
 }
