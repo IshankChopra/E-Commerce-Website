@@ -21,6 +21,25 @@ public class FakeStoreProductService implements ProductService{
         return fakeStoreProduct.toProduct();
     }
 
+    public Product createProduct(String title,
+                                 String description,
+                                 String category,
+                                 double price,
+                                 String image){
+
+        FakeStoreProductDto fakeStoreProductDto=new FakeStoreProductDto();
+        fakeStoreProductDto.setTitle(title);
+        fakeStoreProductDto.setCategory(category);
+        fakeStoreProductDto.setPrice(price);
+        fakeStoreProductDto.setImage(image);
+        fakeStoreProductDto.setDescription(description);
+
+        FakeStoreProductDto response=restTemplate.postForObject("https://fakestoreapi.com/products",
+                fakeStoreProductDto,
+                FakeStoreProductDto.class);
+        return response.toProduct();
+    }
+
 
 
 }
