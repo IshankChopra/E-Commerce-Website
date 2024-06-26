@@ -1,5 +1,5 @@
 package dev.spring.ecommercewebsite.controllers;
-
+import java.util.*;
 import dev.spring.ecommercewebsite.dtos.CreateProductRequestDto;
 import dev.spring.ecommercewebsite.models.Product;
 import dev.spring.ecommercewebsite.services.ProductService;
@@ -34,12 +34,17 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public void getAllProduct(){
-
+    public List<Product> getAllProduct(){
+        return productService.getProducts();
     }
 
     public void updateProduct(){
 
+    }
+
+    @GetMapping("/category")
+    public List<String> getallcategory(){
+        return productService.getallcategory();
     }
 
 }

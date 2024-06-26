@@ -2,6 +2,8 @@ package dev.spring.ecommercewebsite.services;
 
 import dev.spring.ecommercewebsite.models.Product;
 
+import java.util.List;
+
 public interface ProductService {
     public Product getSingleProduct(Long productId);
 
@@ -10,4 +12,10 @@ public interface ProductService {
                                  String category,
                                  double price,
                                  String image);
+
+    public List<String> getallcategory();
+
+    public List<Product> getProducts();
 }
+
+

@@ -1,9 +1,12 @@
 package dev.spring.ecommercewebsite.services;
 
 import dev.spring.ecommercewebsite.dtos.FakeStoreProductDto;
+import dev.spring.ecommercewebsite.models.Category;
 import dev.spring.ecommercewebsite.models.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @Service
 public class FakeStoreProductService implements ProductService{
@@ -41,5 +44,16 @@ public class FakeStoreProductService implements ProductService{
     }
 
 
+    public List<String> getallcategory(){
+        List<String> output=restTemplate.getForObject("https://fakestoreapi.com/products/categories",
+                List.class);
+
+        return output;
+    }
+
+    @Override
+    public List<Product> getProducts() {
+        return null;
+    }
 
 }
