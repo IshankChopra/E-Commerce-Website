@@ -3,6 +3,9 @@ import java.util.*;
 import dev.spring.ecommercewebsite.dtos.CreateProductRequestDto;
 import dev.spring.ecommercewebsite.models.Product;
 import dev.spring.ecommercewebsite.services.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -42,9 +45,11 @@ public class ProductController {
 
     }
 
+
     @GetMapping("/category")
     public List<String> getallcategory(){
         return productService.getallcategory();
     }
+
 
 }

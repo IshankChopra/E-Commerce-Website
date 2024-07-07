@@ -9,7 +9,7 @@ public class ECommerceWebsiteApplication {
 
     public static void main(String[] args) {
         Product p=new Product();
-        SpringApplication.run(ECommerceWebsiteApplication.class, args);
+        SpringApplication.run(ECommerceWebsiteApplication.class, args);         
     }
 
 }

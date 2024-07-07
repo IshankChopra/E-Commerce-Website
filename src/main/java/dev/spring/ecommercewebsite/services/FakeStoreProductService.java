@@ -3,6 +3,9 @@ package dev.spring.ecommercewebsite.services;
 import dev.spring.ecommercewebsite.dtos.FakeStoreProductDto;
 import dev.spring.ecommercewebsite.models.Category;
 import dev.spring.ecommercewebsite.models.Product;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,10 +22,13 @@ public class FakeStoreProductService implements ProductService{
 
     @Override
     public Product getSingleProduct(Long productId) {
-        FakeStoreProductDto fakeStoreProduct = restTemplate.getForObject("http://fakestoreapi.com/products/" + productId,
+       FakeStoreProductDto  fakeStoreProductDto = restTemplate.getForObject("http://fakestoreapi.com/products/" + productId,
                 FakeStoreProductDto.class);
 
-        return fakeStoreProduct.toProduct();
+                return fakeStoreProductDto.toProduct();
+
+       
+
     }
 
     public Product createProduct(String title,
@@ -64,8 +70,11 @@ public class FakeStoreProductService implements ProductService{
 
         return products;
 
-
-
     }
 
+
+
+    
 }
+
+
